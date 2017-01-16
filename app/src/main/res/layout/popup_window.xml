@@ -63,5 +63,11 @@
             android:layout_marginLeft="5dp"
             android:clickable="true"
             android:src="@drawable/logo_deutsches_musik_radio"/>
+        <Button
+            android:id="@+id/button_stream_three"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#61d2e4"
+             />
     </LinearLayout>
 </LinearLayout>

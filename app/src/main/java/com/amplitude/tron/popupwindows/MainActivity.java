@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnClosePopup;
     Button btnCreatePopup;
+    Button streamThree;
     ImageButton playControlButton;
 
     MediaPlayer mediaPlayer = new MediaPlayer();
@@ -120,10 +121,13 @@ public class MainActivity extends AppCompatActivity {
             btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup);
             btnClosePopup.setOnClickListener(cancel_button_click_listener);
 
-            streamOne = (ImageView) layout.findViewById(R.id.button_stream_two);
-            streamOne.setOnClickListener(streamOneClick);
-            streamOne = (ImageView) layout.findViewById(R.id.button_stream_two);
-            streamTwo.setOnClickListener(streamTwoClick);
+            streamThree = (Button) layout.findViewById(R.id.button_stream_three);
+            streamThree.setOnClickListener(go_to_stream_three);
+
+            streamOne = (ImageView) layout.findViewById(R.id.button_stream_one);
+            streamOne.setOnClickListener(availableStreams);
+            streamTwo = (ImageView) layout.findViewById(R.id.button_stream_two);
+            streamTwo.setOnClickListener(availableStreams);
 
 
         } catch (Exception e) {
@@ -133,12 +137,21 @@ public class MainActivity extends AppCompatActivity {
 
     private View.OnClickListener cancel_button_click_listener = new View.OnClickListener() {
         public void onClick(View v) {
+            mediaPlayer.reset();
+            playStream("http://136.243.133.81:8000/live");
             pwindo.dismiss();
         }
     };
 
 
-    private View.OnClickListener streamOneClick = new View.OnClickListener() {
+    private View.OnClickListener go_to_stream_three = new View.OnClickListener() {
+        public void onClick(View v) {
+            pwindo.dismiss();
+        }
+    };
+
+
+    /*private View.OnClickListener streamOneClick = new View.OnClickListener() {
         public void onClick(View v) {
             mediaPlayer.reset();
             playStream("http://136.243.133.81:8000/live");
@@ -151,9 +164,9 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.reset();
             playStream("http://mp3channels.webradio.antenne.de/top-40.aac");
         }
-    };
+    };*/
 
-   /* private View.OnClickListener availableStreams = new View.OnClickListener() {
+    private View.OnClickListener availableStreams = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.button_stream_one:
@@ -166,6 +179,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-    };*/
+    };
 }
 
